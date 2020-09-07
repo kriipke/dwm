@@ -6,6 +6,9 @@ include config.mk
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
+CFLAGS += `pkg-config --cflags freetype2`
+LIBS += `pkg-config --libs freetype2`
+
 all: options dwm
 
 options:
