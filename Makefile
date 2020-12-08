@@ -5,9 +5,14 @@ include config.mk
 
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
+O_NERD := 0  # support icons-nerdfont
 
 CFLAGS += `pkg-config --cflags freetype2`
 LIBS += `pkg-config --libs freetype2`
+
+ifeq ($(O_NERD),1)
+	CPPFLAGS += -DNERD
+endif
 
 all: options dwm
 

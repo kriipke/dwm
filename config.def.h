@@ -2,12 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int gappx     = 7;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "DejaVuSansMono Nerd Font:size=10", "monospace:size=10" };
-static const char dmenufont[]       = "DejaVuSansMono Nerd Font:size=10";
+static const char *fonts[]          = { "Cousine:size=10", "monospace:size=10" };
+static const char dmenufont[]       = "Cousine:size=10";
 static const char col_gray1[]       = "#151515";
 static const char col_gray2[]       = "#222222";
 static const char col_gray3[]       = "#444444";
@@ -20,7 +20,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "\uf8a2", "\uf8a5", "\uf8a8", "\uf8ab", "\uf02c", "\uf09e", "\uf6ed", "\ufbee", "\uf269" };
+static const char *tags[] = { ICON_TAG, ICON_GIT, ICON_LINUX, ICON_SPOTIFY, ICON_EXT_RSS, ICON_LINUX, ICON_EXT_NOTE, ICON_EXT_VIM, ICON_EXT_FIREFOX };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -58,13 +58,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray1, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	/*{ MODKEY|ShiftMask,           XK_Return, spawn, 	       {.v = termcmd } }, ...MOD3+Enter spawns new term in kitty */
-	{ MODKEY|ControlMask|ShiftMask, XK_Return, spawn,          {.v = termcmd } }, /* just in-case kitty is inaccessible */
+	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -78,8 +77,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	/* { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ControlMask,           XK_Return, togglefloating, {0} },
+	{ MODKEY,                       XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ControlMask,           XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -118,4 +116,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
