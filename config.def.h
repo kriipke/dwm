@@ -4,7 +4,7 @@
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 7;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
+static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Cousine:size=10", "monospace:size=10" };
 static const char dmenufont[]       = "Cousine:size=10";
@@ -20,8 +20,28 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { ICON_TAG, ICON_GIT, ICON_LINUX, ICON_SPOTIFY, ICON_EXT_RSS, ICON_LINUX, ICON_EXT_NOTE, ICON_EXT_VIM, ICON_EXT_FIREFOX };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = {
+    ICON_TAG,
+    ICON_GIT,
+    ICON_LINUX,
+    ICON_SPOTIFY,
+    ICON_EXT_RSS,
+    ICON_LINUX,
+    ICON_EXT_NOTE,
+    ICON_EXT_VIM,
+    ICON_EXT_FIREFOX
+};
+static const char *tagsalt[] = {
+    ICON_1_BOX_OUTL,
+    ICON_2_BOX_OUTL,
+    ICON_3_BOX_OUTL,
+    ICON_4_BOX_OUTL,
+    ICON_5_BOX_OUTL,
+    ICON_6_BOX_OUTL,
+    ICON_7_BOX_OUTL,
+    ICON_8_BOX_OUTL,
+    ICON_9_BOX_OUTL
+};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,9 +59,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "\uf792",      tile },    /* first entry is default */
-	{ "\uf793",      NULL },    /* no layout function means floating behavior */
-	{ "\uf878",      monocle },
+	{ ICON_GRID,      tile },    /* first entry is default */
+	{ ICON_FLOATING,  NULL },    /* no layout function means floating behavior */
+	{ ICON_MONOCLE,   monocle },
 };
 
 /* key definitions */
