@@ -2,6 +2,11 @@ dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
 
+## CHANGES & NOTES
+
+* __kriipke__ ~ 21/08/14
+  - to satisfying missing "Xinerama.h" while compiling install the libXinerama \
+  development package: `dnf install -y libXinerama-devel`
 
 Requirements
 ------------
