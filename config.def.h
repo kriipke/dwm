@@ -42,7 +42,17 @@ static const char *tagsalt[] = {
     ICON_8_BOX_OUTL,
     ICON_9_BOX_OUTL
 };
-
+static const char *defaulttagapps[] = { 
+	"st",
+	"firefox",
+	"firefox",
+	"firefox",
+	"firefox",
+	"firefox",
+	"firefox",
+	"firefox",
+	"firefox"
+};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -85,6 +95,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+ 	{ MODKEY,                       XK_s,      spawndefault,   {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -111,7 +122,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_n,      togglealttag,   {0} },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY|ShiftMaks,             XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
